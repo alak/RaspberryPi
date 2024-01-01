@@ -34,6 +34,7 @@ while(1):
     for i in range(rotationCount ):
         for fullStep in range(4):
             for pin in range(4):
+                print("pin=",pin,"fullStep=",fullStep,"seq[fullStep][pin]=",seq[fullStep][pin])
                 les_pins[pin].set_value(seq[fullStep][pin])
                 time.sleep(0.001)
         

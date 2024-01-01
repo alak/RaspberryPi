@@ -1,14 +1,15 @@
-import RPi.GPIO as GPIO
+import gpiod
 import time
 
-GPIO.setmode(GPIO.BOARD)
-
+chip = gpiod.Chip('gpiochip4')
 
 ControlPin=[7,11,13,15]
+les_pins=[]
 
 for pin in ControlPin:
-    GPIO.setup(pin,GPIO.OUT)
-    GPIO.output(pin,0)
+    l = chip.get_line(pin)
+    les_pins.append(l)
+    l.request(consumer="MOTOR", type=gpiod.LINE_REQ_DIR_OUT)
     
 seq=    [[1,1,0,0],  
          [0,1,1,0],
@@ -33,8 +34,10 @@ while(1):
     for i in range(rotationCount ):
         for fullStep in range(4):
             for pin in range(4):
-                GPIO.output(ControlPin[pin],seq[fullStep][pin])
+                les_pins[pin].set_value(seq[fullStep][pin])
                 time.sleep(0.001)
         
  
-GPIO.cleanup()
+for pin in les_pins:
+    pin.release()
+

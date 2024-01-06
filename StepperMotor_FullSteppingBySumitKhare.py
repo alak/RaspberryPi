@@ -45,13 +45,22 @@
 # finally:
 #    led_line.release()
 
-from gpiozero import LED
+from gpiozero import Motor
 from time import sleep
 
-led = LED(17)
+# ENA = LED(4)
+# IN1 = LED(17)
+# IN2 = LED(27)
 
-while True:
-    led.on()
-    sleep(1)
-    led.off()
-    sleep(1)
+print("Start")
+motor = Motor(17, 27)
+motor.forward()
+print("sleep 20")
+sleep(20)
+print("sleep end")
+
+# while True:
+#     led.on()
+#     sleep(1)
+#     led.off()
+#     sleep(1)

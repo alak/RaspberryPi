@@ -6,15 +6,15 @@ led_line = chip.get_line(LED_PIN)
 led_line.request(consumer="MOTOR", type=gpiod.LINE_REQ_DIR_OUT)
 try:
    while True:
-    print("start")
+       print("start")
        led_line.set_value(1)
        print("sleep")
        time.sleep(20)
-print("endsleep")
+       print("endsleep")
        led_line.set_value(0)
        print("stop")
        time.sleep(1)
        
 finally:
-    print("release")
+   print("release")
    led_line.release()

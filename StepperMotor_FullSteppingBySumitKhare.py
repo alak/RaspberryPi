@@ -21,7 +21,8 @@ try:
        print("sleep")
        time.sleep(20)
        print("endsleep")
-       led_line.set_value(0)
+       ena_line.set_value(0)
+       in1_line.set_value(0)
        print("stop")
        time.sleep(1)
        

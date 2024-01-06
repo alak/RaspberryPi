@@ -1,13 +1,23 @@
 import gpiod
 import time
-LED_PIN = 17
+ENA_PIN = 4
+IN1_PIN = 17
+IN2_PIN = 27
 chip = gpiod.Chip('gpiochip4')
-led_line = chip.get_line(LED_PIN)
-led_line.request(consumer="MOTOR", type=gpiod.LINE_REQ_DIR_OUT)
+ena_line = chip.get_line(ENA_PIN)
+ena_line.request(consumer="ENA_MOTOR", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+
+in1_line = chip.get_line(IN1_PIN)
+in1_line.request(consumer="IN1_MOTOR", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+
+in2_line = chip.get_line(IN2_PIN)
+in2_line.request(consumer="IN2_MOTOR", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
 try:
    while True:
        print("start")
-       led_line.set_value(1)
+       ena_line.set_value(1)
+       in1_line.set_value(1)
+       in2_line.set_value(0)
        print("sleep")
        time.sleep(20)
        print("endsleep")

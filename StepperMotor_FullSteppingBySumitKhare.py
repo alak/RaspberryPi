@@ -47,6 +47,15 @@
 
 from gpiozero import Motor
 from time import sleep
+import sys
+
+sleep_time = float(sys.argv[1]);
+
+if(sleep_time<=0) {
+    sleep_time = 1;
+}
+
+print(sleep_time)
 
 # ENA = LED(4)
 # IN1 = LED(17)
@@ -56,7 +65,7 @@ print("Start")
 motor = Motor(17, 27)
 motor.backward()
 print("sleep 20")
-sleep(20)
+sleep(sleep_time)
 print("sleep end")
 
 # while True:

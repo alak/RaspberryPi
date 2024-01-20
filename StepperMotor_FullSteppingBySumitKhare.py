@@ -51,9 +51,9 @@ import sys
 
 sleep_time = float(sys.argv[1]);
 
-if(sleep_time<=0) {
-    sleep_time = 1;
-}
+# if(sleep_time<=0) {
+#     sleep_time = 1,0;
+# }
 
 print(sleep_time)
 

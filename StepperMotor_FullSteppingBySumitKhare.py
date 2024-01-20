@@ -63,7 +63,7 @@ print(sleep_time)
 
 print("Start")
 motor = Motor(17, 27)
-motor.backward()
+motor.forward()
 print("sleep 20")
 sleep(sleep_time)
 print("sleep end")

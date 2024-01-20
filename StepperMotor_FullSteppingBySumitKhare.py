@@ -63,10 +63,6 @@ print(sleep_time)
 # IN1 = LED(17)
 # IN2 = LED(27)
 
-for i in range(1, 11):
-    eject_card();
-
-
 def eject_card():
     print("Start")
     motor.forward()
@@ -79,5 +75,11 @@ def eject_card():
     sleep(sleep_time)
     motor.stop()
     sleep(2.5)
+
+
+for i in range(1, 11):
+    eject_card();
+
+
 
 

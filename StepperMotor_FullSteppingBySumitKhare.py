@@ -54,7 +54,7 @@ from time import sleep
 
 print("Start")
 motor = Motor(17, 27)
-motor.forward()
+motor.backward()
 print("sleep 20")
 sleep(20)
 print("sleep end")

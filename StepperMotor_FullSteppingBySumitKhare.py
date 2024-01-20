@@ -67,6 +67,8 @@ motor.forward()
 print("sleep 20")
 sleep(sleep_time)
 print("sleep end")
+motor.backward()
+sleep(sleep_time/2)
 
 # while True:
 #     led.on()
